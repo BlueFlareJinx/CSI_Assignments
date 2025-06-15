@@ -1,3 +1,4 @@
+/* Basic Reset */
 * 
 {
   box-sizing: border-box;
@@ -8,22 +9,38 @@
 body 
 {
   font-family: Arial, sans-serif;
+  background-color: #fafafa;
   line-height: 1.6;
 }
 
+/* Header and Navigation */
 header 
 {
-  background: #333;
-  color: #fff;
+  background-color: #333;
+  color: white;
   padding: 1rem;
   position: relative;
 }
 
-nav 
+nav
 {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
+}
+
+.logo 
+{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu-toggle 
+{
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .nav-links 
@@ -34,69 +51,99 @@ nav
 
 .nav-links a 
 {
-  color: #fff;
+  color: white;
   text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  transition: background 0.3s ease;
 }
 
-.menu-toggle 
+.nav-links a:hover
 {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
+  background-color: #555;
+  border-radius: 5px;
 }
 
+/* Main Grid Layout */
 .container 
 {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 main 
 {
-  background: #f4f4f4;
+  background-color: #f4f4f4;
   padding: 1rem;
+  border-radius: 5px;
 }
 
 aside 
 {
-  background: #e4e4e4;
+  background-color: #e4e4e4;
   padding: 1rem;
+  border-radius: 5px;
 }
 
+/* Footer */
 footer 
 {
-  background: #333;
-  color: #fff;
+  background-color: #333;
+  color: white;
   text-align: center;
   padding: 1rem;
+  margin-top: 2rem;
 }
+
+/* -------- Responsive Rules -------- */
 
 @media (max-width: 768px) 
 {
-  .container 
-  {
+  .container {
     grid-template-columns: 1fr;
   }
 
+  /* Show hamburger */
+  .menu-toggle 
+  {
+    display: block;
+    color: white;
+  }
+
+  /* Hide nav links initially */
   .nav-links 
   {
     flex-direction: column;
-    display: none;
     width: 100%;
-    background: #444;
-    padding: 0.5rem;
+    display: none;
+    background-color: #444;
+    margin-top: 1rem;
+    padding: 1rem;
   }
 
+  /* Show when active */
   .nav-links.active 
   {
     display: flex;
   }
 
-  .menu-toggle 
+  .nav-links a 
   {
-    display: block;
-    color: #fff;
+    padding: 0.75rem;
+    border-bottom: 1px solid #555;
+  }
+}
+
+@media (max-width: 480px) 
+{
+  body 
+  {
+    font-size: 15px;
+  }
+
+  .logo 
+  {
+    font-size: 1.2rem;
   }
 }

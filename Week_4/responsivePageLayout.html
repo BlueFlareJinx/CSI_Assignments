@@ -13,10 +13,10 @@
       <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
       <div class="nav-links" id="navLinks">
 
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Courses Enrolled</a>
+        <a href="#">Projects</a>
+        <a href="#">Support</a>
 
       </div>
     </nav>
@@ -24,18 +24,18 @@
 
   <div class="container">
     <main>
-      <h1>Welcome to MySite — where ideas meet innovation</h1>
+      <h1>Welcome to MySite -where ideas meet innovation</h1>
       <p>This is a sample responsive page layout with Flexbox and CSS.</p>
     
     </main>
 
     <aside>
-      <h3>Sidebar</h3>
+      <h3>Course Content</h3>
       <ul>
-        <li>Item One</li>
-        <li>Item Two</li>
-        <li>Item Three</li>
-        <li>Item Four</li>
+        <li>Week-1 - Introduction</li>
+        <li>Week-2 - Links and multimedia</li>
+        <li>Week-3 - Introdution to css</li>
+        <li>Week-4  -Layout</li>
       </ul>
     </aside>
   </div>
@@ -45,10 +45,12 @@
   </footer>
 
   <script>
-    function toggleMenu() {
+    function toggleMenu() 
+    {
       const nav = document.getElementById('navLinks');
       nav.classList.toggle('active');
     }
   </script>
+  
 </body>
 </html>
