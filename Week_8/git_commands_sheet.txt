@@ -1,0 +1,73 @@
+
+GIT COMMANDS CHEAT SHEET
+=========================
+
+1. Stage all changes and commit with a meaningful message
+---------------------------------------------------------
+git add .
+git commit -m "Add/update: <describe what you changed>"
+
+2. Committed to the wrong branch: Move commits to the correct branch
+--------------------------------------------------------------------
+# Step 1: Create and switch to the correct branch
+git checkout -b correct-branch
+
+# Step 2: Remove commits from the wrong branch
+git checkout wrong-branch
+git reset --hard HEAD~N    # N = number of commits to remove
+
+# Step 3: Push updated branches
+git push origin correct-branch
+git push origin wrong-branch --force   # Be cautious
+
+3. Create a new branch, make changes, commit, and push to GitHub
+-----------------------------------------------------------------
+git checkout -b feature-branch-name
+git add .
+git commit -m "Describe the feature or fix"
+git push origin feature-branch-name
+
+4. Contribute to open-source on GitHub (Fork → Clone → Branch → PR)
+--------------------------------------------------------------------
+# Fork the repo on GitHub, then:
+git clone https://github.com/your-username/project-name.git
+cd project-name
+
+git checkout -b feature-branch
+# Make changes
+git add .
+git commit -m "Fix: meaningful message"
+git push origin feature-branch
+# Create a Pull Request on GitHub
+
+5. Resolve merge conflicts
+--------------------------
+git checkout your-branch
+git fetch origin
+git merge origin/main
+
+# Resolve conflict markers (<<<<<<), then:
+git add .
+git commit -m "Resolve merge conflicts with main"
+
+6. Create a feature branch based on latest main
+-----------------------------------------------
+git checkout main
+git pull origin main
+git checkout -b new-feature
+
+7. Revert to a specific previous commit (discard newer commits)
+---------------------------------------------------------------
+git log                        # Find the commit hash
+git reset --hard abc1234      # Use the desired commit hash
+git push origin HEAD --force  # If needed
+
+8. Restore a deleted file from a previous commit
+------------------------------------------------
+# If already committed:
+git checkout HEAD^ -- path/to/deleted-file
+git add path/to/deleted-file
+git commit -m "Restore accidentally deleted file"
+
+# If not committed yet:
+git restore path/to/deleted-file
